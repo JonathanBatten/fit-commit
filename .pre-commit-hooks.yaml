@@ -1,0 +1,6 @@
+-   id: fit-commit
+    name: Fit Commit
+    description: A hook to validate commit messages based on community standards.
+    entry: fit-commit run
+    language: ruby
+    stages: [commit-msg]

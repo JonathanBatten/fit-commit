@@ -172,6 +172,19 @@ $ rbenv exec ruby -rrubygems -e 'require "fit_commit"; FitCommit.run'
 
 It exits with an error code if any errors are present, which will fail a build if it's part of a CI run.
 
+### How can I run this using pre-commit?
+
+Fit Commit can also be used by the [pre-commit](https://pre-commit.com) git hooks framework by adding the below config to your `.pre-commit-config.yaml` file:
+
+```yaml
+-   repo: https://github.com/m1foley/fit-commit
+    rev:  # Use the ref you want to point at
+    hooks:
+    -   id: fit-commit
+```
+
+If this is the only way you use Fit Commit, the [installation instructions](#installation) can be skipped.
+
 ### Who decided these rules?
 Fit Commit aims to enforce *community standards*. The two influential guides are:
 

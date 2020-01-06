@@ -1,5 +1,6 @@
 require "fit_commit/installer"
 require "fit_commit/version"
+require "fit_commit"
 
 module FitCommit
   class Cli
@@ -24,6 +25,13 @@ module FitCommit
       $stderr.puts "Usage: fit-commit install"
       $stderr.puts "Usage: fit-commit uninstall"
       EXIT_CODE_SUCCESS
+    end
+
+    def run
+      ENV.store("COMMIT_MESSAGE_PATH", self.args[0])
+      ENV.store("GIT_BRANCH_NAME", `git symbolic-ref --short HEAD 2> /dev/null`)
+
+      FitCommit.run
     end
 
     def install
